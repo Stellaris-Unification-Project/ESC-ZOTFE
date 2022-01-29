@@ -1,0 +1,1043 @@
+########################
+### Resized Weapons
+########################
+
+### power requirement
+@power_S5 = -35
+@power_M5 = -85
+@power_L5 = -210
+ 
+@power_S6 = -45
+@power_M6 = -115
+@power_L6 = -280
+
+@power_S7 = -50
+@power_M7 = -125
+@power_L7 = -315
+
+@power_S8 = -55
+@power_M8 = -135
+@power_L8 = -340
+
+@power_S9 = -60
+@power_M9 = -145
+@power_L9 = -375
+
+### mineral cost
+@cost_S5 = 15
+@cost_M5 = 30
+@cost_L5 = 45
+           
+@cost_S6 = 20
+@cost_M6 = 40
+@cost_L6 = 80
+
+@cost_S7 = 25
+@cost_M7 = 50
+@cost_L7 = 100
+
+@cost_S8 = 30
+@cost_M8 = 60
+@cost_L8 = 120
+
+@cost_S9 = 35
+@cost_M9 = 70
+@cost_L9 = 140
+
+### strength and regen
+@shield_S4 = 110
+@shield_M4 = 275
+@shield_L4 = 685
+
+@regen_S3 = 0.85
+@regen_M3 = 2.15
+@regen_L3 = 5.25
+
+@regen_S4 = 1.10
+@regen_M4 = 2.75
+@regen_L4 = 6.85
+
+@shield_S5 = 140
+@shield_M5 = 350
+@shield_L5 = 875
+
+@regen_S5 = 1.40
+@regen_M5 = 3.50
+@regen_L5 = 8.75
+
+@shield_S6 = 180
+@shield_M6 = 450
+@shield_L6 = 1150
+
+@regen_S6 = 1.80
+@regen_M6 = 4.50
+@regen_L6 = 11.50
+
+@shield_S7 = 230
+@shield_M7 = 575
+@shield_L7 = 1400
+
+@regen_S7 = 2.30
+@regen_M7 = 5.75
+@regen_L7 = 14.00
+
+@shield_S8 = 280
+@shield_M8 = 700
+@shield_L8 = 1700
+
+@regen_S8 = 2.80
+@regen_M8 = 7.00
+@regen_L8 = 17.00
+
+@shield_S9 = 350
+@shield_M9 = 850
+@shield_L9 = 2000
+
+@regen_S9 = 3.50
+@regen_M9 = 8.50
+@regen_L9 = 20.00
+
+
+# Psi Missile System
+weapon_component_template = {
+	key = "PSI_MISSILE_SYSTEM"
+	size = torpedo
+	entity = "turret_missile_medium_entity"
+	
+	icon = "GFX_ship_part_psi_missile_system"
+	icon_frame = 1
+	static_rotation = no
+	type = missile
+	
+	damage = { min = 60 max = 80 }
+	windup = { min = 1 max = 15 }
+	total_fire_time = 25
+	range = 150.0
+	accuracy = 1
+	hull_damage = 1.0
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 0
+	tracking = 0.55
+	power = -51
+	cost = 102
+	missile_speed = 20
+	missile_health = 110
+	missile_evasion = 0.30
+	missile_armor = 0
+	missile_shield = 0
+	missile_retarget_range = 150
+	
+	prerequisites = { "tech_psi_missile_system" }
+	component_set = "PSI_MISSILE_SYSTEM"
+	projectile_gfx = "psi_missiles"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+}
+
+# Shadow Bomber
+strike_craft_component_template = {
+	key = "SHADOW_STRIKE_CRAFT"
+	size = LARGE
+	entity = "bomber_entity"
+	power = -85
+	cost = 105
+		
+	count = 8
+	regeneration_per_day = 0.15
+	launch_time = 1.5
+	
+	damage = { min = 20 max = 45 }
+	cooldown = 6
+	range = 15
+	accuracy = 1.0
+	tracking = 0.70
+	
+	health = 135
+	armor = 35
+	shield = 35
+	evasion = 0.65
+	
+	speed = 450
+	rotation_speed = 0.1
+	acceleration = 0.6
+
+	hull_damage = 1.15
+	shield_penetration = 1
+	armor_damage = 1.50
+	
+	ship_behavior = "bombers_behavior"
+	
+	weapon_type = instant
+	projectile_gfx = "nhsc_bomber_5_weapon"
+	
+	icon = "GFX_ship_part_shadow_strike_bomber"
+	icon_frame = 1
+	component_set = "SHADOW_STRIKE_CRAFT"
+	prerequisites = { "tech_shadow_strike_craft" }
+	tags = { weapon_type_strike_craft }
+}
+
+# Shadow Fighter
+strike_craft_component_template = {
+	key = "SHADOW_STRIKE_FIGHTER"
+	size = LARGE
+	entity = "fighter_entity"
+	power = -85
+	cost = 105
+		
+	count = 8
+	regeneration_per_day = 0.15
+	launch_time = 1.5
+	
+	damage = { min = 6 max = 16 }
+	cooldown = 2.0
+	range = 10
+	accuracy = 1.0
+	tracking = 0.70
+	
+	health = 100
+	armor = 35
+	shield = 55
+	evasion = 0.9
+	
+	speed = 485
+	rotation_speed = 0.15
+	acceleration = 0.65
+	
+	hull_damage = 1.15
+	shield_penetration = 1
+	
+	ship_behavior = "bombers_behavior"
+	
+	weapon_type = point_defence
+	projectile_gfx = "nhsc_fighter_5_weapon"
+	
+	icon = "GFX_ship_part_shadow_strike_fighter"
+	icon_frame = 1
+	component_set = "SHADOW_STRIKE_FIGHTER"
+	prerequisites = { "tech_shadow_strike_craft" }
+	tags = { weapon_type_strike_craft }
+}
+
+#Hellfire Autocannon
+
+weapon_component_template = {
+	key = "HELLFIRE_AUTOCANNONS"
+	size = large
+	entity = "large_kinetic_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_hellfire_autocannons"
+	icon_frame = 1
+	
+	damage = { min = 177 max = 534 }
+	windup = { min = 5 max = 10 }
+	total_fire_time = 10
+	range = 90.0
+	accuracy = 0.8
+	hull_damage = 1.25
+	shield_damage = 2
+	shield_penetration = 0
+	armor_penetration = 0
+	armor_damage = 0.25
+	tracking = 0.05
+	power = -120
+	cost = 120
+	
+	prerequisites = { "tech_hellfire_autocannons" }
+	component_set = "HELLFIRE_AUTOCANNONS"
+	projectile_gfx = "hellfire_autocannons"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield }
+	ai_tag_weight = 0
+}
+
+# Terror Cannon
+
+weapon_component_template = {
+	type = instant
+	
+	key = "TERROR_CANNON"
+	size = large
+	entity = "large_kinetic_gun_entity"
+	
+	icon = "GFX_ship_part_terror_cannon"
+	icon_frame = 1
+	
+	damage = { min = 280 max = 560 }
+	windup = { min = 1 max = 18 }
+	total_fire_time = 28
+	range = 100.0
+	accuracy = 0.75
+	hull_damage = 1.25
+	shield_damage = 1.75
+	shield_penetration = 0
+	armor_damage = 0.5
+	armor_penetration = 0
+	tracking = 0.35
+	power = -130
+	cost = 205
+	
+	prerequisites = { "tech_terror_cannon" }
+	component_set = "TERROR_CANNON"
+	projectile_gfx = "terror_cannon"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield }
+}
+
+# Ion Disruptor
+
+weapon_component_template = {
+	key = "ION_DISRUPTOR"
+	size = large
+	entity = "large_laser_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_ion_disruptor"
+	icon_frame = 1
+	
+	damage = { min = 50 max = 550 }
+	windup = { min = 2 max = 20 }
+	total_fire_time = 30
+	range = 90.0
+	accuracy = 1
+	hull_damage = 1
+	shield_damage = 1
+	shield_penetration = 1
+	armor_damage = 1
+	armor_penetration = 1
+	tracking = 0.05
+	power = -120
+	cost = 120
+	
+	prerequisites = { "tech_ion_disruptor" }
+	component_set = "ION_DISRUPTOR"
+	projectile_gfx = "ion_disruptor_l"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
+}
+
+
+# ####################
+#  Energy Lance
+# ####################
+
+# ## Compact Omni Lance
+
+weapon_component_template = {
+	key = "COMPACT_OMNI_LANCE"
+	size = large
+	entity = "large_laser_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_omni_lance"
+	icon_frame = 1
+	
+	static_rotation = yes
+	firing_arc = 25.0
+	min_range = 40.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 1120 max = 2450 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 60
+	range = 130.0
+	accuracy = 0.9
+	shield_damage = 0.5
+	armor_damage = 2
+	hull_damage = 1.5
+	tracking = 0
+	power = -400
+	cost = 425
+	
+	prerequisites = { "tech_compact_omni_lance" }
+	component_set = "COMPACT_OMNI_LANCE"
+	projectile_gfx = "compact_omni_lance"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor }
+
+}
+
+# ## Omni Lance
+
+weapon_component_template = {
+	key = "OMNI_LANCE"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_omni_lance"
+	icon_frame = 1
+	
+	static_rotation = yes
+	firing_arc = 25.0
+	min_range = 40.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 1300 max = 2750 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 60
+	range = 260.0
+	accuracy = 0.9
+	shield_damage = 0.5
+	armor_damage = 2
+	hull_damage = 1.5
+	tracking = 0
+	power = -350
+	cost = 450
+	
+	prerequisites = { "tech_omni_lance" }
+	component_set = "OMNI_LANCE"
+	projectile_gfx = "omni_lance"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 5
+
+}
+
+####################
+# Arc Emitter
+####################
+
+# ## Compact Omni Emitter
+
+weapon_component_template = {
+	key = "COMPACT_OMNI_EMITTER"
+	size = large
+	entity = "large_laser_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_omni_emitter"
+	icon_frame = 1
+	
+	static_rotation = yes
+	firing_arc = 35.0
+	min_range = 10.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 1 max = 2800 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 61
+	range = 160.0
+	hull_damage = 1
+	shield_damage = 1
+	shield_penetration = 1
+	armor_damage = 1
+	armor_penetration = 1
+	tracking = 0
+	power = -400
+	cost = 450
+	
+	prerequisites = { "tech_compact_omni_emitter" }
+	component_set = "COMPACT_OMNI_EMITTER"
+	projectile_gfx = "compact_omni_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_hull }
+
+}
+
+# ## Omni Emitter
+
+weapon_component_template = {
+	key = "OMNI_EMITTER"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_omni_emitter"
+	icon_frame = 1
+	
+	static_rotation = yes
+	firing_arc = 35.0
+	min_range = 10.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 1 max = 3200 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 61
+	range = 180.0
+	hull_damage = 1
+	shield_damage = 1
+	shield_penetration = 1
+	armor_damage = 1
+	armor_penetration = 1
+	tracking = 0
+	power = -350
+	cost = 475
+	
+	prerequisites = { "tech_omni_emitter" }
+	component_set = "OMNI_EMITTER"
+	projectile_gfx = "omni_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+
+}
+
+# Massive Autocannon
+
+weapon_component_template = {
+	key = "MASSIVE_AUTOCANNONS"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_massive_autocannon"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 5.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 442 max = 1336 }
+	windup = { min = 5 max = 10 }
+	total_fire_time = 10
+	range = 115.0
+	accuracy = 0.75
+	hull_damage = 1.25
+	shield_damage = 2
+	shield_penetration = 0
+	armor_penetration = 0
+	armor_damage = 0.25
+	tracking = 0
+	power = -150
+	cost = 150
+	
+	prerequisites = { "tech_massive_autocannons" }
+	component_set = "MASSIVE_AUTOCANNONS"
+	projectile_gfx = "massive_autocannons"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield }
+	
+}
+
+# ## Compact Omni Cannon
+weapon_component_template = {
+	key = "COMPACT_OMNI_CANNON"
+	size = large
+	entity = "large_kinetic_gun_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_omni_cannon"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 3000 max = 5000 }
+	windup = { min = 5 max = 30 }
+	total_fire_time = 140
+	range = 165.0
+	accuracy = 0.75
+	hull_damage = 1.25
+	shield_damage = 1.5
+	shield_penetration = 0
+	armor_damage = 0.75
+	armor_penetration = 0
+	tracking = 0
+	power = -400
+	cost = 350
+	
+	prerequisites = { "tech_compact_omni_cannon" }
+	component_set = "COMPACT_OMNI_CANNON"
+	projectile_gfx = "compact_omni_cannon"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield }
+	ai_tag_weight = 0
+
+}
+
+# ## Omni Cannon
+weapon_component_template = {
+	key = "OMNI_CANNON"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_omni_cannon"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 40.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 3300 max = 6600 }
+	windup = { min = 5 max = 30 }
+	total_fire_time = 140
+	range = 165.0
+	accuracy = 0.75
+	hull_damage = 1.25
+	shield_damage = 1.5
+	shield_penetration = 0
+	armor_damage = 0.75
+	armor_penetration = 0
+	tracking = 0
+	power = -300
+	cost = 350
+	
+	prerequisites = { "tech_omni_cannon" }
+	component_set = "OMNI_CANNON"
+	projectile_gfx = "omni_cannon"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+
+}
+
+##Portal Generator
+
+weapon_component_template = {
+	key = "PORTAL_GENERATOR"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_portal_generator"
+	icon_frame = 1
+	
+	use_ship_kill_target = yes
+	
+	damage = { min = 642 max = 1130 }
+	windup = { min = 2 max = 10 }
+	total_fire_time = 15
+	range = 300.0
+	accuracy = 1.0
+	hull_damage = 1.0
+	shield_damage = 0.5
+	armor_damage = 1.0
+	armor_penetration = 1.0
+	tracking = 40
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_portal_generator" }
+	component_set = "PORTAL_GENERATOR"
+	projectile_gfx = "dimensional_horror_spike_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	
+}
+
+# ## Dragon Breath
+weapon_component_template = {
+	key = "DRAGON_BREATH"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_dragon_breath"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = yes
+	use_ship_kill_target = no
+
+	damage = { min = 4948 max = 12123 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 200.0
+	accuracy = 0.85
+	hull_damage = 2.0
+	shield_damage = 0.75
+	armor_penetration = 2.0
+	tracking = 0
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_dragon_breath" }
+	component_set = "DRAGON_BREATH"
+	projectile_gfx = "dragon_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	
+	ai_tag_weight = 0
+}
+
+#Stellarite Weapon
+
+weapon_component_template = {
+	key = "STELLARITE_WEAPON"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_stellarite_weapon"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = no
+	use_ship_kill_target = no
+
+	damage = { min = 4948 max = 12123 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 70
+	range = 135.0
+	accuracy = 0.85
+	hull_damage = 2.0
+	shield_damage = 0.75
+	armor_penetration = 2.0
+	tracking = 0
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_stellarite_weapon" }
+	component_set = "STELLARITE_WEAPON"
+	projectile_gfx = "stellarite_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+
+	ai_tag_weight = 0
+}
+
+#Dimensional Weapon
+
+weapon_component_template = {
+	key = "DIMENSIONAL_WEAPON"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_dimensional_weapon"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = no
+	use_ship_kill_target = no
+
+	damage = { min = 6500 max = 6500 }
+	windup = { min = 20 max = 30 }
+	total_fire_time = 150
+	range = 300.0
+	accuracy = 0.85
+	hull_damage = 1.0
+	shield_damage = 0.25
+	armor_penetration = 1.0
+	tracking = 0
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_dimensional_weapon" }
+	component_set = "DIMENSIONAL_WEAPON"
+	projectile_gfx = "dimensional_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+
+	ai_tag_weight = 0
+}
+
+#Scrapper Weapon
+
+weapon_component_template = {
+	key = "SCRAPPER_WEAPON"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_scrapper_weapon"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = no
+	use_ship_kill_target = no
+	
+	damage = { min = 5000 max = 10000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 0.85
+	hull_damage = 2.0
+	shield_damage = 2.0
+	armor_damage = 0.8
+	tracking = 0
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_scrapper_weapon" }
+	component_set = "SCRAPPER_WEAPON"
+	projectile_gfx = "scavenger_bot_main_weapon"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_artillery }
+	
+	ai_tag_weight = 0
+}
+
+#Elder Tiyanki Weapon
+
+weapon_component_template = {
+	key = "ELDER_TIYANKI_WEAPON"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_elder_tiyanki_weapon"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = no
+	use_ship_kill_target = no
+
+	damage = { min = 4948 max = 12123 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 200.0
+	accuracy = 0.85
+	hull_damage = 1.0
+	shield_damage = 2.0
+	armor_penetration = 0
+	armor_damage = 2.0
+	tracking = 0
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_elder_tiyanki_weapon" }
+	component_set = "ELDER_TIYANKI_WEAPON"
+	projectile_gfx = "elder_tiyanki_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+
+	ai_tag_weight = 0
+}
+
+#Gray Goo Beam
+
+weapon_component_template = {
+	key = "GRAY_GOO_BEAM"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	
+	icon = "GFX_ship_part_gray_goo_beam"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	min_range = 10.0
+	static_rotation = no
+	use_ship_kill_target = no
+
+	damage = { min = 1 max = 9999 }
+	windup = { min = 2 max = 20 }
+	total_fire_time = 115
+	range = 200.0
+	accuracy = 1.0
+	hull_damage = 1.20
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	armor_damage = 1.0
+	tracking = 0.2
+	power = -500
+	cost = 500
+	
+	prerequisites = { "tech_gray_goo_beam" }
+	component_set = "GRAY_GOO_BEAM"
+	projectile_gfx = "gatebuilder_titan_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+
+	ai_tag_weight = 0
+}
+
+
+
+# ####################
+#  Shields
+# ####################
+
+
+utility_component_template = {
+	key = "MEDIUM_DARK_ENERGY_SHIELD"
+	size = medium
+	icon = "GFX_ship_part_dark_energy_shield"
+	icon_frame = 1
+	power = -175
+	cost = 100
+	modifier = {
+		ship_shield_add = 1100
+		ship_shield_regen_add_static = 22.00 #Regeneration per day
+	}
+	prerequisites = { "tech_dark_energy_shield" }
+	component_set = "DARK_ENERGY_SHIELD"
+}
+
+utility_component_template = {
+	key = "LARGE_DARK_ENERGY_SHIELD"
+	size = large
+	icon = "GFX_ship_part_dark_energy_shield"
+	icon_frame = 1
+	power = -450
+	cost = 200
+	modifier = {
+		ship_shield_add = 2750
+		ship_shield_regen_add_static = 150.00
+	}
+	prerequisites = { "tech_dark_energy_shield" }
+	component_set = "DARK_ENERGY_SHIELD"
+}
+
+utility_component_template = {
+	key = "MEDIUM_PSI_BARRIER"
+	size = medium
+	icon = "GFX_ship_part_psi_barrier"
+	icon_frame = 1
+	power = -125
+	cost = 50
+	modifier = {
+		ship_shield_add = @shield_M9
+		ship_shield_regen_add_static = @regen_M9
+	}
+	prerequisites = { "tech_psi_barrier" }
+	component_set = "PSI_BARRIER"
+}
+
+utility_component_template = {
+	key = "LARGE_PSI_BARRIER"
+	size = large
+	icon = "GFX_ship_part_psi_barrier"
+	icon_frame = 1
+	power = -210
+	cost = 90
+	modifier = {
+		ship_shield_add = @shield_L9
+		ship_shield_regen_add_static = @regen_L9
+	}
+	prerequisites = { "tech_psi_barrier" }
+	component_set = "PSI_BARRIER"
+}
+
+# ####################
+#  Armor
+# ####################
+
+utility_component_template = {
+	key = "MEDIUM_DARK_MATTER_PLATING"
+	size = medium
+	icon = "GFX_ship_part_dark_matter_plating"
+	icon_frame = 1
+	power = 0
+	cost = 125
+	
+	prerequisites = { "tech_dark_matter_plating" }
+	component_set = "DARK_MATTER_PLATING"
+	
+	modifier = {
+		ship_hull_add = 900
+		ship_armor_add = 300
+		ship_armor_regen_add_static = 1.5
+	}
+}
+
+utility_component_template = {
+	key = "LARGE_DARK_MATTER_PLATING"
+	size = large
+	icon = "GFX_ship_part_dark_matter_plating"
+	icon_frame = 1
+	power = 0
+	cost = 250
+	
+	prerequisites = { "tech_dark_matter_plating" }
+	component_set = "DARK_MATTER_PLATING"
+	
+	modifier = {
+		ship_hull_add = 1600
+		ship_armor_add = 800
+		ship_armor_regen_add_static = 2.5
+	}
+}
+
+utility_component_template = {
+	key = "MEDIUM_IMPROVED_DRAGON_ARMOR"
+	size = medium
+	icon = "GFX_ship_part_improved_dragon_armor"
+	icon_frame = 1
+	power = 0
+	cost = 125
+	modifier = {
+		ship_armor_add = 1100
+		ship_hull_regen_add_static = 0.5
+		ship_armor_regen_add_static = 1
+	}
+	
+	prerequisites = { "tech_improved_dragon_armor" }
+	component_set = "IMPROVED_DRAGON_ARMOR"
+}
+
+utility_component_template = {
+	key = "LARGE_IMPROVED_DRAGON_ARMOR"
+	size = large
+	icon = "GFX_ship_part_improved_dragon_armor"
+	icon_frame = 1
+	power = 0
+	cost = 250
+	modifier = {
+		ship_armor_add = 2500
+		ship_hull_regen_add_static = 1
+		ship_armor_regen_add_static = 2
+	}
+	
+	prerequisites = { "tech_improved_dragon_armor" }
+	component_set = "IMPROVED_DRAGON_ARMOR"
+}
+
+utility_component_template = {
+	key = "MEDIUM_TITAN_ARMOR"
+	size = medium
+	icon = "GFX_ship_part_titan_armor"
+	icon_frame = 1
+	power = -40
+	cost = 125
+	
+	prerequisites = { "tech_titan_armor" }
+	component_set = "TITAN_ARMOR"
+	
+	modifier = {
+		ship_armor_add = 550
+		ship_shield_add = 350
+		ship_shield_regen_add_static = 4.00
+	}	
+}
+
+utility_component_template = {
+	key = "LARGE_TITAN_ARMOR"
+	size = large
+	icon = "GFX_ship_part_titan_armor"
+	icon_frame = 1
+	power = -70
+	cost = 250
+	
+	prerequisites = { "tech_titan_armor" }
+	component_set = "TITAN_ARMOR"
+	
+	modifier = {
+		ship_armor_add = 1600
+		ship_shield_add = 950
+		ship_shield_regen_add_static = 9.5
+	}	
+}

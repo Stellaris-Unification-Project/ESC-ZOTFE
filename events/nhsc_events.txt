@@ -1,0 +1,318 @@
+namespace = nhsc
+
+## ##################################################### ##
+##             Setting up mod-is-in-use flags            ##
+## ##################################################### ##
+
+event = {
+	id = nhsc.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_global_flag = nhsc_v20
+		}
+	}
+	immediate = {
+		set_global_flag = nhsc_v20
+	}
+}
+
+event = {
+	id = nhsc.2
+	hide_window = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_global_flag = nhsc_v20
+		}
+	}
+	immediate = {
+		set_global_flag = nhsc_v20
+	}
+}
+
+## ##################################################### ##
+##          Dreadnought computers access events          ##
+## ##################################################### ##
+
+event = {
+	id = nhsc.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = no
+				has_country_flag = encountered_dreadnought
+				NOT = { has_country_flag = will_get_dreadnough_computer }
+				NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+				NOT = { has_global_flag = ESC_aux_forbidden }
+			}
+
+			set_country_flag = will_get_dreadnough_computer
+			random_list = {
+				33 = { country_event = { id = nhsc.21 days = 900 random = 100 } }
+				33 = { country_event = { id = nhsc.21 days = 1350 random = 100 } }
+				33 = { country_event = { id = nhsc.21 days = 1800 random = 100 } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nhsc.21
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_research_option = nhsc_tech_dreadnought_computer
+	}
+}
+
+## ##################################################### ##
+##           Frontier Settlements access trigger         ##
+## ##################################################### ##
+
+planet_event = {
+	id = nhsc.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_owner = yes
+		original_owner = yes
+		owner = {
+			NOT = { has_country_flag = nhsc_founded_first_colony }
+		}
+		NOT = { is_planet_class = pc_habitat }
+	}
+
+	immediate = {
+		owner = { set_country_flag = nhsc_founded_first_colony }
+	}
+}
+
+
+## ##################################################### ##
+##         Give basic torps if player has advanced       ##
+## ##################################################### ##
+
+# Psionic torpdoes gone
+
+country_event = {
+	id = nhsc.120
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			last_increased_tech = "nhsc_tech_torpedo_nano_1"
+			last_increased_tech = "nhsc_tech_torpedo_nano_2"
+		}
+	}
+
+	immediate = {
+		give_technology = { tech = "tech_torpedoes_1" message = no }
+		give_technology = { tech = "tech_torpedoes_2" message = no }
+		give_technology = { tech = "tech_torpedoes_3" message = no }
+	}
+}
+
+country_event = {
+	id = nhsc.150
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			last_increased_tech = "nhsc_tech_torpedo_grav_1"
+			last_increased_tech = "nhsc_tech_torpedo_grav_2"
+		}
+	}
+
+	immediate = {
+		give_technology = { tech = "tech_torpedoes_1" message = no }
+		give_technology = { tech = "tech_torpedoes_2" message = no }
+		give_technology = { tech = "tech_torpedoes_3" message = no }
+	}
+}
+## ##################################################### ##
+##    Set global flag if dangerous tech is researched    ##
+## ##################################################### ##
+
+country_event = {
+	id = nhsc.130
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+		OR = {
+			last_increased_tech = "nhsc_tech_waveforcearmor"
+			last_increased_tech = "nhsc_tech_corrosivewarheadtorpedo"
+		}
+		NOT = { has_global_flag = nhsc_dangerous_tech_1_researched }
+		}
+
+	immediate = { set_global_flag = nhsc_dangerous_tech_1_researched }
+	}
+}
+
+country_event = {
+	id = nhsc.140
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		limit = { 
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		OR = {
+			last_increased_tech = "nhsc_tech_chronocannon"
+			last_increased_tech = "nhsc_tech_arcenciel"
+			last_increased_tech = "nhsc_tech_arcenciel_titanic"
+		}
+		NOT = { has_global_flag = nhsc_dangerous_tech_2_researched }
+	}
+
+	immediate = { set_global_flag = nhsc_dangerous_tech_2_researched }
+	}
+}
+
+## ##################################################### ##
+##    Set country flag on killing stellarite devourer    ##
+## ##################################################### ##
+
+country_event = {
+	id = nhsc.200
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROMFROMFROM = { has_ship_flag = stellarite_ship }
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+	}
+
+	immediate = {
+		set_country_flag = nhsc_killed_stellarite_devourer
+		}
+	}
+}
+
+## ##################################################### ##
+##                     Neutronium Fix                    ##
+## ##################################################### ##
+
+event = {
+	id = nhsc.300
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+				NOT = {  has_technology = "tech_mine_neutronium" }
+			}
+			set_country_flag = nhsc_awaiting_neutronium_project
+		}
+	}
+}
+
+country_event = {
+	id = nhsc.301
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+		last_increased_tech = "tech_mine_neutronium"
+		has_country_flag = nhsc_awaiting_neutronium_project
+	}
+
+	immediate = {
+		remove_country_flag = nhsc_awaiting_neutronium_project
+		abort_special_project = { type = "NHSC_SYNTHETIC_NEUTRONIUM" }
+		}
+	}
+}
+
+event = {
+	id = nhsc.310
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				has_country_flag = nhsc_awaiting_neutronium_project
+				has_technology = "tech_sensors_4"
+			}
+			random_list = {
+				66 = {	}
+				34 = {
+					remove_country_flag = nhsc_awaiting_neutronium_project
+					country_event = { id = nhsc.311 days = 180 random = 120 }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nhsc.311
+	picture = GFX_evt_synthetic_neutronium
+	title = "nhsc.311.name"
+	desc = "nhsc.311.desc"
+	is_triggered_only = yes
+
+	option = {
+		name = INTERESTING
+		capital_scope = {
+			enable_special_project = {
+				name = "NHSC_SYNTHETIC_NEUTRONIUM"
+				location = this
+				owner = root.owner
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nhsc.312
+	picture = GFX_evt_synthetic_neutronium
+	title = "nhsc.312.name"
+	desc = "nhsc.312.desc"
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		give_technology = { tech = "tech_mine_neutronium" message = no }
+	}
+}

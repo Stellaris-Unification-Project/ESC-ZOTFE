@@ -44,12 +44,14 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 				has_country_flag = encountered_dreadnought
-				NOT = { has_country_flag = will_get_dreadnough_computer }
-				NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+				NOR = {
+					has_country_flag = will_get_dreadnough_computer
+					has_global_flag = ESC_leviathan_tech_forbidden
+				}
 				NOT = { has_global_flag = ESC_aux_forbidden }
 			}
 

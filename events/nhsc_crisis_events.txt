@@ -26,7 +26,7 @@ event = {
 		### someone rushed dangerous techs : current year is < 50
 		if = {
 			limit = { years_passed < 51 }
-			random_country = {
+			random_playable_country = {
 			limit = {
 				is_country_type = default
 				is_country_type = ascended_empire
@@ -41,7 +41,7 @@ event = {
 				years_passed > 50
 				years_passed < 101
 			}
-			random_country = {
+			random_playable_country = {
 			limit = {
 				is_country_type = default
 				is_country_type = ascended_empire
@@ -53,7 +53,7 @@ event = {
 		# current year is >= 100
 		if = {
 			limit = { years_passed > 100 }
-			random_country = {
+			random_playable_country = {
 			limit = {
 				is_country_type = default
 				is_country_type = ascended_empire
@@ -117,7 +117,7 @@ event = {
 					random_list = {
 						# crisis starts
 						25 = {
-							random_country = {
+							random_playable_country = {
 								limit = {
 									is_country_type = default
 									is_country_type = ascended_empire
@@ -136,7 +136,7 @@ event = {
 					random_list = {
 						# crisis starts
 						50 = {
-							random_country = {
+							random_playable_country = {
 								limit = {
 									is_country_type = default
 									is_country_type = ascended_empire
@@ -209,10 +209,8 @@ country_event = {
 			limit = {
 				NOT = {
 					any_country = {
-						OR = {
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
-						}
+						
+							is_fallen_empire = yes
 						any_system_within_border = {
 							is_same_value = prev
 						}
@@ -231,7 +229,7 @@ country_event = {
 				create_country = {
 					name = "NAME_Unbidden"
 					type = "extradimensional"
-					species = last_created
+					species = last_created_species
 					name_list = "Extradimensional"
 					effect = { set_country_flag = unbidden }
 					flag = {
@@ -296,7 +294,7 @@ country_event = {
 						}
 					}
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = event_target:extradimensional_species
 						name = random
 						skill = 3
@@ -362,8 +360,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 					is_country_type = ascended_empire
 					is_country_type = lost_empire
 				}
@@ -378,8 +375,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 					is_country_type = ascended_empire
 					is_country_type = lost_empire		
 				}

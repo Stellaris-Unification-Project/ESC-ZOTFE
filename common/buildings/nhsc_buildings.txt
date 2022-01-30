@@ -294,8 +294,10 @@ nhsc_building_culture_nexus = {
 	}
 
 	show_tech_unlock_if = {
-		NOT = { has_authority = auth_machine_intelligence }
-		NOT = { has_authority = auth_hive_mind }
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_authority = auth_hive_mind
+		}
 	}
 
 	destroy_if = {
@@ -335,8 +337,10 @@ nhsc_building_culture_nexus = {
 		custom_tooltip = {
 			text = "nhsc_only_one_special_lab"
 			planet = {
-				NOT = { has_building = nhsc_building_materials_laboratory }
-				NOT = { has_building = nhsc_building_technology_institute }
+				NOR = {
+					has_building = nhsc_building_materials_laboratory
+					has_building = nhsc_building_technology_institute
+				}
 			}
 		}
 	}
@@ -418,8 +422,10 @@ nhsc_building_cerebral_node = {
 		custom_tooltip = {
 			text = "nhsc_only_one_special_lab"
 			planet = {
-				NOT = { has_building = nhsc_building_materials_laboratory }
-				NOT = { has_building = nhsc_building_technology_institute }
+				NOR = {
+					has_building = nhsc_building_materials_laboratory
+					has_building = nhsc_building_technology_institute
+				}
 			}
 		}
 	}
@@ -501,8 +507,10 @@ nhsc_building_network_regulator = {
 		custom_tooltip = {
 			text = "nhsc_only_one_special_lab"
 			planet = {
-				NOT = { has_building = nhsc_building_materials_laboratory }
-				NOT = { has_building = nhsc_building_technology_institute }
+				NOR = {
+					has_building = nhsc_building_materials_laboratory
+					has_building = nhsc_building_technology_institute
+				}
 			}
 		}
 	}
@@ -572,8 +580,10 @@ nhsc_building_materials_laboratory = {
 		custom_tooltip = {
 			text = "nhsc_only_one_special_lab"
 			planet = {
-				NOT = { has_building = nhsc_building_culture_nexus }
-				NOT = { has_building = nhsc_building_technology_institute }
+				NOR = {
+					has_building = nhsc_building_culture_nexus
+					has_building = nhsc_building_technology_institute
+				}
 			}
 		}
 	}
@@ -643,8 +653,10 @@ nhsc_building_technology_institute = {
 		custom_tooltip = {
 			text = "nhsc_only_one_special_lab"
 			planet = {
-				NOT = { has_building = nhsc_building_materials_laboratory }
-				NOT = { has_building = nhsc_building_culture_nexus }
+				NOR = {
+					has_building = nhsc_building_materials_laboratory
+					has_building = nhsc_building_culture_nexus
+				}
 			}
 		}
 	}
@@ -789,8 +801,10 @@ nhsc_building_stellar_energy_tower = {
 	prerequisites = { "nhsc_tech_stellar_energy_tower" }
 
 	potential = {
-		NOT = { has_global_flag = ESC_buildings_forbidden }
-		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+		NOR = {
+			has_global_flag = ESC_buildings_forbidden
+			has_global_flag = ESC_leviathan_tech_forbidden
+		}
 	}
 
 	allow = {
@@ -846,8 +860,10 @@ nhsc_building_quantum_node = {
 	required_resources = { energy = 5 }
 
 	potential = {
-		NOT = { has_global_flag = ESC_buildings_forbidden }
-		NOT = { has_global_flag = ESC_leviathan_tech_forbidden }
+		NOR = {
+			has_global_flag = ESC_buildings_forbidden
+			has_global_flag = ESC_leviathan_tech_forbidden
+		}
 	}
 	
 	upgrades = {}

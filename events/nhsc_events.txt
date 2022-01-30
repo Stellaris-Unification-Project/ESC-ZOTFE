@@ -51,8 +51,8 @@ event = {
 				NOR = {
 					has_country_flag = will_get_dreadnough_computer
 					has_global_flag = ESC_leviathan_tech_forbidden
+					has_global_flag = ESC_aux_forbidden
 				}
-				NOT = { has_global_flag = ESC_aux_forbidden }
 			}
 
 			set_country_flag = will_get_dreadnough_computer
